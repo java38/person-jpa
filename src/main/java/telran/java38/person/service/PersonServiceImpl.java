@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import telran.java38.person.dao.PersonRepository;
+import telran.java38.person.dto.CityPopulationDto;
 import telran.java38.person.dto.PersonDto;
 import telran.java38.person.dto.exceptions.PersonNotFoundException;
 import telran.java38.person.model.Person;
@@ -74,6 +75,19 @@ public class PersonServiceImpl implements PersonService {
 		return personRepository.findByBirthDateBetween(from, to)
 				.map(p -> modelMapper.map(p, PersonDto.class))
 				.collect(Collectors.toList());
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public Iterable<PersonDto> findPersonsByCity(String city) {
+		return personRepository.findByAddressCity(city)
+				.map(p -> modelMapper.map(p, PersonDto.class))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public Iterable<CityPopulationDto> getCityPopulation() {
+		return personRepository.getCityPopulation();
 	}
 
 }

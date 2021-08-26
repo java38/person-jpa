@@ -6,6 +6,7 @@ import javax.persistence.Embedded;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -18,7 +19,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @EqualsAndHashCode(of = {"id"})
-@Entity
+@Entity(name = "Adon")
+@Table(name = "person")
 public class Person {
 	
 	@Id
