@@ -2,8 +2,6 @@ package telran.java38.person.model;
 
 import java.time.LocalDate;
 
-import javax.persistence.Embedded;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
